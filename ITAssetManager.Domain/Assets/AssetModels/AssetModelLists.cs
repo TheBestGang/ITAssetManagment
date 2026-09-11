@@ -2,5 +2,5 @@
 namespace ITAssetManager.Domain.Assets.AssetModels;
 public class AssetModelLists
 {
-    public IEnumerable<AssetModel> List { get; set; } = new List<AssetModel>();
+    public IEnumerable<AssetModel> _assetList { get; set; } = new List<AssetModel>();
 }
