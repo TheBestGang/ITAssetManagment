@@ -6,22 +6,19 @@ public class AssetMenuService (IInmemoryAssetRepository inmemoryAssetRepository)
 {
     public void DisplayAssetMenu()
     {
+        AssetDialogService dialogService = new AssetDialogService();
+        dialogService.WelcomeMessage();
+
         bool runAssetMenu = true;
         do
         {
-            //Välkomstmeddelande
-            AssetDialogService dialogService = new AssetDialogService();
-            dialogService.WelcomeMessage();
-
-            //Menymeddelande
             dialogService.MainMenuMessage();
 
-            
             //Validera input med valideringsmetod
             //bool validInput = inmemoryAssetRepository.ValidateInput(Console.ReadLine());
 
-            string validUserInput = string.Empty;
-            switch (validUserInput)
+            string userInput = Console.ReadLine();
+            switch (userInput)
             {
                 case "1": //Registrera tillgång
                     {

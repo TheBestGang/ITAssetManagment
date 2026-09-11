@@ -29,10 +29,6 @@ public class AssetDialogService : IAssetDialogService
                           "[2] Inaktivera en tillgång\n" +
                           "[3] Skriv ut alla sparade tillgångar\n" +
                           "[0] Gå tillbaka till huvudmenyn");
-        
-        string userInput = Console.ReadLine();
-        //VALIDERA
-
     }
 
     public void PrintAllAssetsDialog()
