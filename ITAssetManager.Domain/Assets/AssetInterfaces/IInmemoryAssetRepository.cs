@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetManager.Domain.Assets.AssetInterfaces
+﻿
+namespace ITAssetManager.Domain.Assets.AssetInterfaces;
+public interface IInmemoryAssetRepository
 {
-    internal interface IInmemoryAssetRepository
-    {
-    }
+    public void CreateAsset();
+
+    public void InactivateAsset();
+    
+    public void ReadAssetList();
 }

@@ -8,8 +8,11 @@ public class AssetMenuService
         do
         {
             //Välkomstmeddelande
+            AssetDialogService dialogService = new AssetDialogService();
+            dialogService.WelcomeMessage();
 
             //Menymeddelande
+            
 
             //Valdera input
 
