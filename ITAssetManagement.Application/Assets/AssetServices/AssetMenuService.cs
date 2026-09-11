@@ -1,10 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetManagement.Application.Assets.AssetServices
+﻿
+namespace ITAssetManagement.Application.Assets.AssetServices;
+public class AssetMenuService
 {
-    internal class AssetMenuService
+    public void DisplayAssetMenu()
     {
+        bool runAssetMenu = true;
+        do
+        {
+            //Välkomstmeddelande
+
+            //Menymeddelande
+
+            //Valdera input
+
+            string userInput = string.Empty;
+            switch (userInput)
+            {
+                case "1": //Registrera tillgång
+                    {
+                        
+                        break;
+                    }
+                case "2": //Avveckla tillgång (ej remove)
+                    {
+
+                        break;
+                    }
+                case "3": //Skriv ut alla tillgångar
+                    {
+
+                        break;
+                    }
+                case "0": //avsluta hantering av assets
+                    {
+                        runAssetMenu = false;
+                        break;
+                    }
+            }
+
+        }while(runAssetMenu);
     }
 }
