@@ -7,5 +7,5 @@ public record CreateLicenseRequest
     
     string ProductName,
     string LicenseReference,
-    string SeatCount
+    int SeatCount
 );

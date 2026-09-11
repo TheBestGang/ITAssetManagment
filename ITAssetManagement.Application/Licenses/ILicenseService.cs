@@ -1,7 +1,10 @@
-﻿namespace ITAssetManagement.Application.Licenses;
+﻿using ITAssetManagement.Application.Licenses.Dtos;
+
+namespace ITAssetManagement.Application.Licenses;
 
 public interface ILicenseService
 {
-    CreateLicenseRespose CreateLicense(CreateLicenseRequest request);
-    GetLicenseResponse GetAllLicenses();
+    CreateLicenseResponse CreateLicense(CreateLicenseRequest request);
+    GetLicensesResponse GetAllLicenses();
+    UpdateLicenseResponse UpdateLicense(UpdateLicenseRequest request);
 }
