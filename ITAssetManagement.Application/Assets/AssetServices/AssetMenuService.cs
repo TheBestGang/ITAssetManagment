@@ -17,20 +17,15 @@ public class AssetMenuService (IInmemoryAssetRepository inmemoryAssetRepository)
             dialogService.MainMenuMessage();
 
             
-            //Validera input
-            bool validInput = true;
-            while (validInput)
-            {
-                string userInput = Console.ReadLine();
-                validInput = inmemoryAssetRepository.ValidateInput(userInput);
-            }
+            //Validera input med valideringsmetod
+            //bool validInput = inmemoryAssetRepository.ValidateInput(Console.ReadLine());
 
             string validUserInput = string.Empty;
             switch (validUserInput)
             {
                 case "1": //Registrera tillgång
                     {
-                        
+
                         break;
                     }
                 case "2": //Avveckla tillgång (ej remove)
@@ -48,8 +43,13 @@ public class AssetMenuService (IInmemoryAssetRepository inmemoryAssetRepository)
                         runAssetMenu = false;
                         break;
                     }
+                default:
+                    {
+                        Console.WriteLine("Fel val. Tryck enter för att försöka igen");
+                        Console.ReadKey();
+                        break;
+                    }
             }
-
         }while(runAssetMenu);
     }
 }

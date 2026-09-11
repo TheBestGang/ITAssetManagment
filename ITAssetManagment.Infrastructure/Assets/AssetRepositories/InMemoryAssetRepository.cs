@@ -22,19 +22,15 @@ public class InMemoryAssetRepository : IInmemoryAssetRepository
 
     public bool ValidateInput(string userInput)
     {
-        bool inputValid = false;
-
+        bool validInput = false;
         if (string.IsNullOrWhiteSpace(userInput))
         {
-            Console.WriteLine("Du måste skriva in någonting!");
-            return inputValid;
+            Console.WriteLine("Du måste skriva någonting");
         }
         else
         {
-            inputValid = true;
-            return inputValid;
+            validInput = true;
         }
-    }
 
-   
+    }
 }
