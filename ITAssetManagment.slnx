@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ITAssetManagement.Application/ITAssetManagement.Application.csproj" />
+  <Project Path="ITAssetManager.Domain/ITAssetManager.Domain.csproj" />
+  <Project Path="ITAssetManagment.Infrastructure/ITAssetManagment.Infrastructure.csproj" />
+  <Project Path="ITAssetManagment.Presentation/ITAssetManagment.Presentation.csproj" />
+</Solution>
