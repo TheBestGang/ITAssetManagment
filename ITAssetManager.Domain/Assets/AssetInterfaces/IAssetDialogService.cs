@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetManager.Domain.Assets.AssetInterfaces
+﻿
+namespace ITAssetManager.Domain.Assets.AssetInterfaces;
+public interface IAssetDialogService
 {
-    internal interface IAssetDialogService
-    {
-    }
+    public void WelcomeMessage();
+    public void MainMenuMessage();
+    public void AddAssetDialog();
+    public void ManageAssetDialog();
+    public void PrintAllAssetsDialog();
+    public void ErrorValidationMessage();
+
+
 }
