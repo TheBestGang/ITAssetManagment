@@ -12,7 +12,7 @@ public class AssetDialogService : IAssetDialogService
 
     public void ErrorValidationMessage()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Felaktig inmatning, försök igen");
     }
 
     public void InactivateAssetDialog()

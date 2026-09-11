@@ -3,7 +3,7 @@ using ITAssetManager.Domain.Assets.AssetInterfaces;
 
 namespace ITAssetManagment.Infrastructure.Assets.AssetRepositories;
 
-public class InMemoryAssetRepository : IInmemoryAssetRepository
+public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmemoryAssetRepository 
 {
     public void CreateAsset()
     {
@@ -25,12 +25,13 @@ public class InMemoryAssetRepository : IInmemoryAssetRepository
         bool validInput = false;
         if (string.IsNullOrWhiteSpace(userInput))
         {
-            Console.WriteLine("Du måste skriva någonting");
+            dialogService.ErrorValidationMessage();
+            validInput = false;
         }
         else
         {
             validInput = true;
         }
-
+        return validInput;
     }
 }
