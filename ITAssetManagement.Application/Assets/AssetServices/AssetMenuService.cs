@@ -1,6 +1,8 @@
 ﻿
+using ITAssetManager.Domain.Assets.AssetInterfaces;
+
 namespace ITAssetManagement.Application.Assets.AssetServices;
-public class AssetMenuService
+public class AssetMenuService (IInmemoryAssetRepository inmemoryAssetRepository)
 {
     public void DisplayAssetMenu()
     {
@@ -14,10 +16,17 @@ public class AssetMenuService
             //Menymeddelande
             dialogService.MainMenuMessage();
 
-            //Valdera input
+            
+            //Validera input
+            bool validInput = true;
+            while (validInput)
+            {
+                string userInput = Console.ReadLine();
+                validInput = inmemoryAssetRepository.ValidateInput(userInput);
+            }
 
-            string userInput = string.Empty;
-            switch (userInput)
+            string validUserInput = string.Empty;
+            switch (validUserInput)
             {
                 case "1": //Registrera tillgång
                     {

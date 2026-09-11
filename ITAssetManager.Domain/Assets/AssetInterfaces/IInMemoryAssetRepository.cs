@@ -7,4 +7,6 @@ public interface IInmemoryAssetRepository
     public void InactivateAsset();
     
     public void ReadAssetList();
+
+    public bool ValidateInput(string userInput);
 }
