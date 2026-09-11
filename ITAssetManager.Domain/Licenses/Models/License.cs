@@ -1,4 +1,6 @@
-﻿namespace ITAssetManager.Domain.Licenses.Models;
+﻿using ITAssetManager.Domain.Licenses.ValueObjects;
+
+namespace ITAssetManager.Domain.Licenses.Models;
 
 public class License
 {
@@ -8,41 +10,7 @@ public class License
     public SeatCount SeatCount { get; set; } = null!;
 }
 
-public record Name
+
 {
-    public string Value { get; }
-    public Name(string value)
-    {
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            throw new ArgumentException("Name cannot be null or empty.", nameof(value));
-        }
-        Value = value;
-    }
-}
-public record LicenseReference
-    {
-    public string Value { get; }
-    
-    public LicenseReference(string value)
-    {
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            throw new ArgumentException("License reference cannot be null or empty.", nameof(value));
-        }
-        Value = value;
-    }
-}
-public record SeatCount
+
 {
-    public int Value { get; }
-    
-    public SeatCount(int value)
-    {
-        if (value < 0)
-        {
-            throw new ArgumentException("Seat count cannot be negative.", nameof(value));
-        }
-        Value = value;
-    }
-}
