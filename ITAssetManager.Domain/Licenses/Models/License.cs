@@ -5,7 +5,7 @@ public class License
     public Guid LicenseId { get;}
     public Name ProductName { get; set; } = null!;
     public LicenseReference LicenseReference { get; set; } = null!;
-    public int SeatCount { get; set; }
+    public SeatCount SeatCount { get; set; } = null!;
 }
 
 public record Name
