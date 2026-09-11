@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetManager.Domain.Assets.AssetInterfaces
+﻿
+namespace ITAssetManager.Domain.Assets.AssetInterfaces;
+public interface IAssetManagerService
 {
-    internal interface IAssetManagerService
-    {
-    }
+    public void AddAsset();
+    public void InactiveAsset();
 }

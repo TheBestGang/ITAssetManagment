@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITAssetManagment.Infrastructure.Assets.AssetRepositories
+﻿
+namespace ITAssetManagment.Infrastructure.Assets.AssetRepositories;
+public class InMemoryAssetRepository
 {
-    internal class InMemoryAssetRepository
-    {
-    }
+    
 }
