@@ -12,7 +12,7 @@ public class AssetMenuService
             dialogService.WelcomeMessage();
 
             //Menymeddelande
-            
+            dialogService.MainMenuMessage();
 
             //Valdera input
 

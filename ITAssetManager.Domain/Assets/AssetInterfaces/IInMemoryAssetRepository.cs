@@ -2,11 +2,9 @@
 namespace ITAssetManager.Domain.Assets.AssetInterfaces;
 public interface IInmemoryAssetRepository
 {
-    public void CreateAssetList();
+    public void CreateAsset();
 
+    public void InactivateAsset();
+    
     public void ReadAssetList();
-    
-    public void UpdateAssetList();
-
-    
 }

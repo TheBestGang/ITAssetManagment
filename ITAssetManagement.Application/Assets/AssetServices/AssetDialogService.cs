@@ -23,9 +23,15 @@ public class AssetDialogService : IAssetDialogService
     public void MainMenuMessage()
     {
         Console.Clear();
-        Console.WriteLine("_____________MENY TILLGÅNGAR_____________\n" +
+        Console.WriteLine("___________MENY TILLGÅNGAR___________\n" +
                           "Välj det du vill göra: \n\n" +
-                          "[1] ");
+                          "[1] Lägg till en tillgång\n" +
+                          "[2] Inaktivera en tillgång\n" +
+                          "[3] Skriv ut alla sparade tillgångar\n" +
+                          "[0] Gå tillbaka till huvudmenyn");
+        
+        string userInput = Console.ReadLine();
+        //VALIDERA
 
     }
 
