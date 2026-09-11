@@ -10,4 +10,8 @@
     <ProjectReference Include="..\ITAssetManager.Domain\ITAssetManager.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\AssetRepositories\" />
+  </ItemGroup>
+
 </Project>

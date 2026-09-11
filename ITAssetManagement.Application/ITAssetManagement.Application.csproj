@@ -10,4 +10,10 @@
     <ProjectReference Include="..\ITAssetManager.Domain\ITAssetManager.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\AssetServices\" />
+    <Folder Include="Assets\AssetDtos\" />
+    <Folder Include="Assets\" />
+  </ItemGroup>
+
 </Project>
