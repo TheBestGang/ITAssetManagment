@@ -4,8 +4,15 @@ using ITAssetManager.Domain.Licenses.ValueObjects;
 
 namespace ITAssetManagement.Application.Licenses;
 
-internal class LicenseService : ILicenseService
+public class LicenseService : ILicenseService
 {
+    private readonly ILicenseStore _licenseStore;
+
+    public LicenseService(ILicenseStore licenseStore)
+    {
+        _licenseStore = licenseStore;
+    }
+
     public CreateLicenseResponse CreateLicense(CreateLicenseRequest request)
     {
         ArgumentNullException.ThrowIfNull(request, nameof(request));
@@ -15,19 +22,33 @@ internal class LicenseService : ILicenseService
         SeatCount seatCount = new SeatCount(request.SeatCount);
 
         License license = new(licenseId, productName, licenseReference, seatCount);
-        var saved = licenseStore.Add(license);
+        var saved = _licenseStore.AddLicense(license);
+
         return saved
-            ? new CreateLicenseResponse( true, license , null)
-            : new CreateLicenseResponse ( false, null, ErrorMessage = "Failed to save the license." );  
+            ? new CreateLicenseResponse(true, license, null)
+            : new CreateLicenseResponse(false, null, "Failed to save the license.");
     }
+
 
     public GetLicensesResponse GetAllLicenses()
     {
-        throw new NotImplementedException();
-    }
+        var licenses = _licenseStore.GetAllLicenses();
 
+        return new GetLicensesResponse(true, licenses, null);
+    }
     public UpdateLicenseResponse UpdateLicense(UpdateLicenseRequest request)
     {
-        throw new NotImplementedException();
+        if (request == null)
+        {
+            return new UpdateLicenseResponse(false, null, "Bad request");
+        }
+
+        var license = _licenseStore.GetLicenseByLicenseId(request.LicenseId);
+        if (license == null)
+        {
+            return new UpdateLicenseResponse(false, null, "License not found");
+        }
+        license.SeatCount = request.SeatCount;
+        return new UpdateLicenseResponse(true, license.SeatCount, null);
     }
 }

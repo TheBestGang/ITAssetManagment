@@ -6,6 +6,5 @@ public interface ILicenseStore
 {
     bool AddLicense(License license);
     IReadOnlyList<License> GetAllLicenses();
-    bool UpdateLicense(string licenseId, SeatCount newSeatCount, out SeatCount seatCount);
-    License GetLicenseByLicenseId(string licenseId, out License license);
+    License? GetLicenseByLicenseId(string licenseId);
 }

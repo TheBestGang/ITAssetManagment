@@ -1,5 +1,7 @@
 ﻿using ITAssetManagement.Application.Licenses.Dtos;
 
+using ITAssetManager.Domain.Licenses.Models;
+
 namespace ITAssetManagement.Application.Licenses;
 
 public interface ILicenseService

@@ -13,4 +13,4 @@ public record LicenseReference
         Value = value;
     }
     }
-}
+

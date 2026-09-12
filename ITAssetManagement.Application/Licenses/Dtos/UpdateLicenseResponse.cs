@@ -6,6 +6,6 @@ namespace ITAssetManagement.Application.Licenses.Dtos;
 public record UpdateLicenseResponse
 (
     bool Success,
-    SeatCount SeatCount,
+    SeatCount? SeatCount,
     string? ErrorMessage
     );

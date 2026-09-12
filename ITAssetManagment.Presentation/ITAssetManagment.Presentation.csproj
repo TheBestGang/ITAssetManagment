@@ -12,8 +12,4 @@
     <ProjectReference Include="..\ITAssetManagment.Infrastructure\ITAssetManagment.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Licenses\" />
-  </ItemGroup>
-
 </Project>
