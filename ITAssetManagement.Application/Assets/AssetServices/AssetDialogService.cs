@@ -5,9 +5,29 @@ namespace ITAssetManagement.Application.Assets.AssetServices;
 
 public class AssetDialogService : IAssetDialogService
 {
-    public void AddAssetDialog()
+    public void AddAssetNameDialog(string addedAssetName)
     {
-        throw new NotImplementedException();
+        Console.WriteLine($"Tillgången {addedAssetName} är tillagd!");
+    }
+
+    public void AddAssetSerialNumberDialog(string addedAssetSerialNumber)
+    {
+        Console.WriteLine($"Tillgångens serienummer {addedAssetSerialNumber} är tillagd!");
+    }
+
+    public void AddedAssetAllDialog(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)
+    {
+        if (addedAssetStatus == true)
+        {
+            //Skitdum hantering för att ändra status till "Aktiv" inför utskrift.
+            string assetStatus = "Aktiv";
+
+            Console.WriteLine($"Tillgång tillagd med följande information: \n" +
+                          $"Namn: {addedAssetName}\n" +
+                          $"Serienummer: {addedAssetSerialNumber}\n" +
+                          $"Status: {assetStatus}\n");
+        }
+        Console.WriteLine("Tryck valrfri tangent för att fortsätta");
     }
 
     public void ErrorValidationMessage()
