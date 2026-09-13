@@ -28,6 +28,8 @@ public class AssetDialogService : IAssetDialogService
                           $"Status: {assetStatus}\n");
         }
         Console.WriteLine("Tryck valrfri tangent för att fortsätta");
+        Console.ReadKey();
+        Console.Clear();
     }
 
     public void ErrorValidationMessage()
