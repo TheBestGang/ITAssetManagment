@@ -6,16 +6,11 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
 {
     public void AddAsset()
     {
-
-        inMemoryAssetRepository.CreateAsset();
-
-        AssetDialogService assetDialogService = new AssetDialogService();
-        assetDialogService.AddedAssetAllDialog(assetModel.AssetName, assetModel.AssetSerialNumber, assetModel.AssetStatus);
-
+        AssetModel newAsset = inMemoryAssetRepository.CreateAsset();
 
         //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till
         var _assetList = (List<AssetModel>)AssetModelLists._assetList;
-        _assetList.Add(assetModel);
+        _assetList.Add(newAsset);
     }
 
     public void InactiveAsset()

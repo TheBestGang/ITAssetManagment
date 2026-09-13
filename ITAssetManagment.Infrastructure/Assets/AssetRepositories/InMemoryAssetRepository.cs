@@ -6,7 +6,7 @@ namespace ITAssetManagment.Infrastructure.Assets.AssetRepositories;
 
 public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmemoryAssetRepository 
 {
-    public void CreateAsset()
+    public AssetModel CreateAsset()
     {
         //Tillgång till assetModel
         AssetModel assetModel = new AssetModel();
@@ -14,7 +14,9 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
         //Behöver ej skapa nytt guidId då det görs i modellen
 
         //Validera input för name så det ej är tomt/null
+
         //SKRIV INPUT MESSAGE
+
         string userInputName = Console.ReadLine();
         bool validInputName = ValidateInput(userInputName);
         if (validInputName == true)
@@ -25,7 +27,9 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
         }
 
         //Serialnumber, samma som ovan hantering
+
         //SKRIV INPUT MESSAGE
+
         string userInputSerialNumber = Console.ReadLine();
         bool validInputSerialNumber = ValidateInput(userInputSerialNumber);
         if (validInputSerialNumber == true)
@@ -34,16 +38,23 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
             dialogService.AddAssetSerialNumberDialog(userInputSerialNumber);
         }
 
-        //PrintAddedAsset(assetModel.AssetName, assetModel.AssetSerialNumber, assetModel.AssetStatus);
+        return assetModel;
 
     }
 
-    //public void PrintAddedAsset(string assetName, string assetSerialNumber, bool assetStatus)
+    public void PrintAddedAsset(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)
     {
-        //Skriv ut allting som regisrerats
-        
-        
-        
+        if (addedAssetStatus == true)
+        {
+            //Skitdum hantering för att ändra status till "Aktiv" inför utskrift.
+            string assetStatus = "Aktiv";
+
+            //Skriv ut allting som regisrerats
+            Console.WriteLine($"Tillgång tillagd med följande information: \n" +
+                              $"Namn: {addedAssetName}\n" +
+                              $"Serienummer: {addedAssetSerialNumber}\n" +
+                              $"Status: {assetStatus}\n");
+        }
     }
 
     public void InactivateAsset()

@@ -3,44 +3,47 @@ using ITAssetManager.Domain.Assets.AssetInterfaces;
 
 namespace ITAssetManagement.Application.Assets.AssetServices;
 
-public class AssetDialogService : IAssetDialogService
+public class AssetDialogService (IInmemoryAssetRepository inMemoryAssetRepository) : IAssetDialogService
 {
     public void AddAssetNameDialog(string addedAssetName)
     {
         Console.WriteLine($"Tillgången {addedAssetName} är tillagd!");
     }
 
+
+
     public void AddAssetSerialNumberDialog(string addedAssetSerialNumber)
     {
         Console.WriteLine($"Tillgångens serienummer {addedAssetSerialNumber} är tillagd!");
     }
 
+
+
     public void AddedAssetAllDialog(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)
     {
-        if (addedAssetStatus == true)
-        {
-            //Skitdum hantering för att ändra status till "Aktiv" inför utskrift.
-            string assetStatus = "Aktiv";
+        //Printar ut allt
+        inMemoryAssetRepository.PrintAddedAsset(addedAssetName, addedAssetSerialNumber, addedAssetStatus);
 
-            Console.WriteLine($"Tillgång tillagd med följande information: \n" +
-                          $"Namn: {addedAssetName}\n" +
-                          $"Serienummer: {addedAssetSerialNumber}\n" +
-                          $"Status: {assetStatus}\n");
-        }
         Console.WriteLine("Tryck valrfri tangent för att fortsätta");
         Console.ReadKey();
         Console.Clear();
     }
+
+
 
     public void ErrorValidationMessage()
     {
         Console.WriteLine("Felaktig inmatning, försök igen");
     }
 
+
+
     public void InactivateAssetDialog()
     {
         throw new NotImplementedException();
     }
+
+
 
     public void MainMenuMessage()
     {
@@ -53,10 +56,14 @@ public class AssetDialogService : IAssetDialogService
                           "[0] Gå tillbaka till huvudmenyn");
     }
 
+
+
     public void PrintAllAssetsDialog()
     {
         throw new NotImplementedException();
     }
+
+
 
     public void WelcomeMessage()
     {
