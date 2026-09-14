@@ -2,32 +2,28 @@
 using ITAssetManager.Domain.Assets.AssetInterfaces;
 
 namespace ITAssetManagement.Application.Assets.AssetServices;
-public class AssetMenuService (IInmemoryAssetRepository inmemoryAssetRepository)
+public class AssetMenuService (IInmemoryAssetRepository inMemoryAssetRepository, AssetManagerService assetManagerService, AssetDialogService assetDialogService)
 {
     public void DisplayAssetMenu()
     {
-        AssetDialogService dialogService = new AssetDialogService();
-        dialogService.WelcomeMessage();
+        assetDialogService.WelcomeMessage();
 
         bool runAssetMenu = true;
         do
         {
-            dialogService.MainMenuMessage();
-
-            //Validera input med valideringsmetod
-            //bool validInput = inmemoryAssetRepository.ValidateInput(Console.ReadLine());
+            assetDialogService.MainMenuMessage();
 
             string userInput = Console.ReadLine();
             switch (userInput)
             {
                 case "1": //Registrera tillgång
                     {
-
+                        assetManagerService.AddAsset();
                         break;
                     }
                 case "2": //Avveckla tillgång (ej remove)
                     {
-
+                        
                         break;
                     }
                 case "3": //Skriv ut alla tillgångar

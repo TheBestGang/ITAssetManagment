@@ -8,7 +8,7 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
     {
         AssetModel newAsset = inMemoryAssetRepository.CreateAsset();
 
-        //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till
+        //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till på listan
         var _assetList = (List<AssetModel>)AssetModelLists._assetList;
         _assetList.Add(newAsset);
     }
