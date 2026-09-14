@@ -2,7 +2,7 @@
 
 namespace ITAssetManagement.Application.Locations.Services;
 
-internal interface ILocationService
+public interface ILocationService
 {
     CreateLocationResponse CreateLocation(CreateLocationRequest request);
     GetAllLocationsResponse GetAllLocations();

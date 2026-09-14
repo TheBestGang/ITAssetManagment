@@ -5,6 +5,6 @@ namespace ITAssetManagement.Application.Locations.Dtos;
 public record GetAllLocationsResponse
 (
     bool Succeeded,
-    IReadOnlyList<Location>? Locations,
+    IReadOnlyList<Location> Locations,
     string? ErrorMessage
 );
