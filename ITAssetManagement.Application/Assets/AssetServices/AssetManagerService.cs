@@ -21,6 +21,8 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
         //meddelande välj tillgång som ska inaktiveras
         assetDialogService.InactivateAssetDialog();
 
+        //Lägg till en sökning av det användaren skrivit in + koppla till repon för denna ändring. 
+
         //Ändra bool till false
         asset.AssetStatus = false;
 

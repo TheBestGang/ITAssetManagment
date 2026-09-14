@@ -56,9 +56,16 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
         }
     }
 
-    public void InactivateAsset()
+    public void InactivateAsset(AssetModel asset)
     {
-        throw new NotImplementedException();
+        if (asset.AssetStatus == true)
+        {
+            asset.AssetStatus = false;
+        }
+        else
+        {
+            asset.AssetStatus = true;
+        }
     }
 
     public void ReadAssetList()

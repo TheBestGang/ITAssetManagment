@@ -23,6 +23,8 @@ public class AssetMenuService (IInmemoryAssetRepository inMemoryAssetRepository,
                     }
                 case "2": //Avveckla tillgång (ej remove)
                     {
+                        
+                        
                         assetManagerService.InactiveAsset();
                         break;
                     }

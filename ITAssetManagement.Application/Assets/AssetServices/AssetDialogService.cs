@@ -40,7 +40,7 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
 
     public void InactivateAssetDialog()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Skriv serienummer på den tillgången du vill ändra status på");
     }
 
 
@@ -62,8 +62,6 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
     {
         Console.WriteLine("Samtliga tillgångar du sparat: \n" +
                           "_______________________________");
-
-
     }
 
 
