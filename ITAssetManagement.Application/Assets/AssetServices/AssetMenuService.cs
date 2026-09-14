@@ -28,7 +28,7 @@ public class AssetMenuService (IInmemoryAssetRepository inMemoryAssetRepository,
                     }
                 case "3": //Skriv ut alla tillgångar
                     {
-                        
+                        inMemoryAssetRepository.ReadAssetList();
                         break;
                     }
                 case "0": //avsluta hantering av assets
