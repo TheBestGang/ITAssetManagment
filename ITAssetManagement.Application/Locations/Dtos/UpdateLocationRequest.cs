@@ -4,7 +4,5 @@ namespace ITAssetManagement.Application.Locations.Dtos;
 
 public record UpdateLocationRequest
 (
-    bool Succeeded,
-    Location Location,
-    string? ErrorMessage
+    Location UpdatedLocation
 );

@@ -2,7 +2,7 @@
 
 public record LocationCode
 {
-    public string Value { get; set; }
+    public string Value { get; }
 
     public LocationCode(string value)
     {

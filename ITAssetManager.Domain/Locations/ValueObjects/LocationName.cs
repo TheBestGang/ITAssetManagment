@@ -2,7 +2,7 @@
 
 public record LocationName
 {
-    public string Value { get; set; }
+    public string Value { get; }
 
     public LocationName(string value, int minLength = 2)
     {

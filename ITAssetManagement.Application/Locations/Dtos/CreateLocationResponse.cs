@@ -5,6 +5,6 @@ namespace ITAssetManagement.Application.Locations.Dtos;
 public record CreateLocationResponse
 (
     bool Succeeded,
-    Location Location,
+    Location? Location,
     string? ErrorMessage
 );

@@ -2,6 +2,7 @@
 
 public record CreateLocationRequest
 (
+    Guid? LocationId,
     string LocationCode,
     string LocationName
 );

@@ -4,7 +4,7 @@ namespace ITAssetManagement.Application.Locations.Services;
 
 internal interface ILocationService
 {
-    CreateLocationResponse CreateCustomer(CreateLocationRequest request);
+    CreateLocationResponse CreateLocation(CreateLocationRequest request);
     GetAllLocationsResponse GetAllLocations();
     UpdateLocationResponse UpdateLocation(UpdateLocationRequest request);
 }

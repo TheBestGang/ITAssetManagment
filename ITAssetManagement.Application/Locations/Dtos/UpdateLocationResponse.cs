@@ -1,6 +1,10 @@
-﻿namespace ITAssetManagement.Application.Locations.Dtos;
+﻿using ITAssetManager.Domain.Locations.Models;
+
+namespace ITAssetManagement.Application.Locations.Dtos;
 
 public record UpdateLocationResponse
 (
-    string LocationName
+    bool Succeeded,
+    Location? Location,
+    string? ErrorMessage
 );
