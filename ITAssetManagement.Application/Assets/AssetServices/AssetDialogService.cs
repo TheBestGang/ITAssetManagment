@@ -3,7 +3,7 @@ using ITAssetManager.Domain.Assets.AssetInterfaces;
 
 namespace ITAssetManagement.Application.Assets.AssetServices;
 
-public class AssetDialogService (IInmemoryAssetRepository inMemoryAssetRepository) : IAssetDialogService
+public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository) : IAssetDialogService
 {
     public void AddAssetNameDialog(string addedAssetName)
     {
@@ -71,4 +71,10 @@ public class AssetDialogService (IInmemoryAssetRepository inMemoryAssetRepositor
         Console.WriteLine("Välkommen till hantering av tillgångar. Tryck valfri tangent för att gå vidare");
         Console.ReadKey();
     }
+
+    public void InputRequestMessage(string input)
+    {
+        Console.WriteLine($"Vänligen ange tillgångens {input}: ");
+    }
+
 }

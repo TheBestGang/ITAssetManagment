@@ -8,14 +8,13 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
 {
     public AssetModel CreateAsset()
     {
-        //Tillgång till assetModel
         AssetModel assetModel = new AssetModel();
 
         //Behöver ej skapa nytt guidId då det görs i modellen
 
-        //Validera input för name så det ej är tomt/null
-
-        //SKRIV INPUT MESSAGE
+        //Efterfrågar och tilldelar tillgångsnamn + validering
+        string namnInput = "namn";
+        dialogService.InputRequestMessage(namnInput);
 
         string userInputName = Console.ReadLine();
         bool validInputName = ValidateInput(userInputName);
@@ -26,9 +25,10 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
             dialogService.AddAssetNameDialog(userInputName);
         }
 
-        //Serialnumber, samma som ovan hantering
+        //Serienummer, samma som ovan hantering
 
-        //SKRIV INPUT MESSAGE
+        string serienummerInput = "serienummer";
+        dialogService.InputRequestMessage(serienummerInput);
 
         string userInputSerialNumber = Console.ReadLine();
         bool validInputSerialNumber = ValidateInput(userInputSerialNumber);
@@ -39,7 +39,6 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
         }
 
         return assetModel;
-
     }
 
     public void PrintAddedAsset(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)

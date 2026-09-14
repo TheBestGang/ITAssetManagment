@@ -10,6 +10,7 @@ public interface IAssetDialogService
     public void InactivateAssetDialog();
     public void PrintAllAssetsDialog();
     public void ErrorValidationMessage();
+    public void InputRequestMessage(string input);
 
 
 }
