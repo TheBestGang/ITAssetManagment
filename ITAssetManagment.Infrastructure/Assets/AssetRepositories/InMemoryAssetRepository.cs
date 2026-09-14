@@ -63,22 +63,29 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
 
     public void ReadAssetList()
     {
-        foreach(asset in _assetList) //FIX
+        foreach (AssetModel asset in AssetModelLists._assetList) //FIX
         {
-            //Skämssätt att sätta aktiv eller inaktiv på statusen
-            string assetStatus;
-            if (asset.AssetStatus == true)
+            if (_assetList != null)
             {
-                assetStatus = "Aktiv";
+                //Skämssätt att sätta aktiv eller inaktiv på statusen
+                string assetStatus;
+                if (asset.AssetStatus == true)
+                {
+                    assetStatus = "Aktiv";
+                }
+                else
+                {
+                    assetStatus = "Inaktiv";
+                }
+                Console.WriteLine($"Tillgång: \n" +
+                                  $"Namn: {asset.AssetName}\n" +
+                                  $"Serienummer: {asset.AssetSerialNumber}\n" +
+                                  $"Status: {assetStatus}");
             }
             else
             {
-                assetStatus = "Inaktiv";
+                Console.WriteLine("Du har inga tillgångar i din lista");
             }
-            Console.WriteLine($"Tillgång: \n" +
-                              $"Namn: {asset.AssetName}\n" +
-                              $"Serienummer: {asset.AssetSerialNumber}\n" +
-                              $"Status: {assetStatus}");
         }
     }
 
