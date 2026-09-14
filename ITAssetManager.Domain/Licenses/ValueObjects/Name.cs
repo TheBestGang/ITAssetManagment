@@ -7,7 +7,7 @@ public record Name
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentException("Name cannot be null or empty.", nameof(value));
+            throw new ArgumentException("Du måste ange ett namn.", nameof(value));
         }
         Value = value;
     }

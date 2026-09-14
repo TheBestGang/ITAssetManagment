@@ -7,12 +7,11 @@ internal class CreateLicenseDialog
     public static CreateLicenseRequest CreateLicense()
     {
         Console.Clear();
-        Console.WriteLine("Create a new license");
+        Console.WriteLine("###Skapa ny licens###");
 
-        var productName = ConsoleInput.ReadRequiredString("Product name: ");
-        var licenseReference = ConsoleInput.ReadRequiredString("License reference: ");
-        var seatCount = ConsoleInput.ReadNonNegativeInt("Seat count: ");
-
+        var productName = ConsoleInput.ReadRequiredString("Produktnamn: ");
+        var licenseReference = ConsoleInput.ReadRequiredString("Licensreferens: ");
+        var seatCount = ConsoleInput.ReadNonNegativeInt("Antal platser: ");
         return new CreateLicenseRequest(
             productName,
             licenseReference,

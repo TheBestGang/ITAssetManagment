@@ -26,7 +26,7 @@ public class LicenseService : ILicenseService
 
         return saved
             ? new CreateLicenseResponse(true, license, null)
-            : new CreateLicenseResponse(false, null, "Failed to save the license.");
+            : new CreateLicenseResponse(false, null, "Misslyckades med att spara licensen.");
     }
 
 
@@ -40,13 +40,13 @@ public class LicenseService : ILicenseService
     {
         if (request == null)
         {
-            return new UpdateLicenseResponse(false, null, "Bad request");
+            return new UpdateLicenseResponse(false, null, "Felaktig begäran");
         }
 
         var license = _licenseStore.GetLicenseByLicenseId(request.LicenseId);
         if (license == null)
         {
-            return new UpdateLicenseResponse(false, null, "License not found");
+            return new UpdateLicenseResponse(false, null, "Licensen hittades inte.");
         }
         license.SeatCount = request.SeatCount;
         return new UpdateLicenseResponse(true, license.SeatCount, null);

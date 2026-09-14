@@ -14,7 +14,7 @@ internal static class ConsoleInput
                 return value.Trim();
             }
 
-            Console.WriteLine("A value is required.");
+            Console.WriteLine("Du måste ange något.");
         }
     }
 
@@ -29,7 +29,7 @@ internal static class ConsoleInput
                 return value;
             }
 
-            Console.WriteLine("Enter a non-negative whole number.");
+            Console.WriteLine("Ange ett icke-negativt heltal.");
         }
     }
 }

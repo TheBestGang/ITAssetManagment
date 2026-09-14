@@ -8,9 +8,9 @@ namespace ITAssetManagment.Presentation.Licenses.Dialogs
         public static UpdateLicenseRequest UpdateLicense()
         {
             Console.Clear();
-            Console.WriteLine("Update a license");
-            var licenseId = ConsoleInput.ReadRequiredString("License ID: ");
-            var seatCountint = ConsoleInput.ReadNonNegativeInt("Seat Count: ");
+            Console.WriteLine("###Uppdatera licens###");
+            var licenseId = ConsoleInput.ReadRequiredString("Licens ID: ");
+            var seatCountint = ConsoleInput.ReadNonNegativeInt("Antal platser: ");
             SeatCount seatCount = new(seatCountint);
 
             return new UpdateLicenseRequest(licenseId, seatCount);

@@ -8,7 +8,7 @@ public record SeatCount
     {
         if (value < 0)
         {
-            throw new ArgumentException("Seat count cannot be negative.", nameof(value));
+            throw new ArgumentException("Antalet kan inte vara negativt.", nameof(value));
         }
         Value = value;
     }

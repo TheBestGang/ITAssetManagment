@@ -8,7 +8,7 @@ public record LicenseReference
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentException("License reference cannot be null or empty.", nameof(value));
+            throw new ArgumentException("Referensnummer får inte vara tomt.", nameof(value));
         }
         Value = value;
     }

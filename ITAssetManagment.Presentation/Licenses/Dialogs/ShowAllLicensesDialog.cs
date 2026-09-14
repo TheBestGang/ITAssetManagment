@@ -10,7 +10,7 @@ namespace ITAssetManagment.Presentation.Licenses.Dialogs
         {
             foreach (var license in response.Licenses)
             {
-                Console.WriteLine($"License ID: {license.LicenseId}, Name: {license.ProductName.Value}, Referens: {license.LicenseReference.Value}, Antal användare {license.SeatCount.Value}");    
+                Console.WriteLine($"Licens ID: {license.LicenseId}, Namn: {license.ProductName.Value}, Referens: {license.LicenseReference.Value}, Antal användare: {license.SeatCount.Value}");    
                 Console.ReadKey();
             }
         }
