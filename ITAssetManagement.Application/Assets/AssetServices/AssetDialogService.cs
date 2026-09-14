@@ -60,7 +60,10 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
 
     public void PrintAllAssetsDialog()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Samtliga tillgångar du sparat: \n" +
+                          "_______________________________");
+
+
     }
 
 

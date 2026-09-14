@@ -4,7 +4,7 @@ using ITAssetManager.Domain.Assets.AssetModels;
 
 namespace ITAssetManagment.Infrastructure.Assets.AssetRepositories;
 
-public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmemoryAssetRepository 
+public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetModel asset, AssetModelLists _assetList) : IInmemoryAssetRepository 
 {
     public AssetModel CreateAsset()
     {
@@ -63,7 +63,23 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService) : IInmem
 
     public void ReadAssetList()
     {
-        throw new NotImplementedException();
+        foreach(asset in _assetList) //FIX
+        {
+            //Skämssätt att sätta aktiv eller inaktiv på statusen
+            string assetStatus;
+            if (asset.AssetStatus == true)
+            {
+                assetStatus = "Aktiv";
+            }
+            else
+            {
+                assetStatus = "Inaktiv";
+            }
+            Console.WriteLine($"Tillgång: \n" +
+                              $"Namn: {asset.AssetName}\n" +
+                              $"Serienummer: {asset.AssetSerialNumber}\n" +
+                              $"Status: {assetStatus}");
+        }
     }
 
     public bool ValidateInput(string userInput)

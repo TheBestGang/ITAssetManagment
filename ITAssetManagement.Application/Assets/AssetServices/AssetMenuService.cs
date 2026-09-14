@@ -23,12 +23,12 @@ public class AssetMenuService (IInmemoryAssetRepository inMemoryAssetRepository,
                     }
                 case "2": //Avveckla tillgång (ej remove)
                     {
-                        
+                        assetManagerService.InactiveAsset();
                         break;
                     }
                 case "3": //Skriv ut alla tillgångar
                     {
-
+                        
                         break;
                     }
                 case "0": //avsluta hantering av assets

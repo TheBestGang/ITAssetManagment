@@ -2,7 +2,7 @@
 using ITAssetManager.Domain.Assets.AssetModels;
 
 namespace ITAssetManagement.Application.Assets.AssetServices;
-public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepository, AssetModelLists _assetList) : IAssetManagerService
+public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepository, AssetModelLists _assetList, AssetDialogService assetDialogService, AssetModel asset) : IAssetManagerService
 {
     public void AddAsset()
     {
@@ -13,8 +13,16 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
         _assetList.Add(newAsset);
     }
 
-    public void InactiveAsset()
+    public void InactiveAsset(AssetModel asset)
     {
-        throw new NotImplementedException();
+        //skriv ut allt
+        assetDialogService.PrintAllAssetsDialog();
+
+        //meddelande välj tillgång som ska inaktiveras
+        assetDialogService.InactivateAssetDialog();
+
+        //Ändra bool till false
+        asset.AssetStatus = false;
+
     }
 }
