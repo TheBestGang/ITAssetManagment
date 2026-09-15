@@ -7,9 +7,9 @@ public interface IInmemoryAssetRepository
 {
     public AssetModel CreateAsset();
 
-    public void PrintAddedAsset(string assetName, string assetSerialNumber, bool assetStatus);
+    public void PrintAddedAsset(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus);
 
-    public void InactivateAsset(string inputAssetSerialNumberToBeChanged);
+    public void InactivateAsset(AssetModel asset);
     
     public void ReadAssetList();
 

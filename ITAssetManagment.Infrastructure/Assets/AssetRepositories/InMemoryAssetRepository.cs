@@ -83,7 +83,7 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
             {
                 if (inputAssetSerialNumberToBeChanged == existingAsset.AssetSerialNumber)
                 {
-                    InactivateAsset(inputAssetSerialNumberToBeChanged);
+                    InactivateAsset(existingAsset);
                 }
             }
         }
@@ -91,11 +91,6 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
         {
             dialogService.ErrorValidationMessage();
         }
-    }
-
-    private void InactivateAsset(string inputAssetSerialNumberToBeChanged)
-    {
-        throw new NotImplementedException();
     }
 
     public void ReadAssetList()
