@@ -12,31 +12,52 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
 
         //Behöver ej skapa nytt guidId då det görs i modellen
 
-        //Efterfrågar och tilldelar tillgångsnamn + validering
-        string namnInput = "namn";
-        dialogService.InputRequestMessage(namnInput);
+        bool validInputName = false;
 
-        string userInputName = Console.ReadLine();
-        bool validInputName = ValidateInput(userInputName);
-        if (validInputName == true)
+        while (validInputName == false)
         {
-            //Om validering ok läggs den till och skriver ut att den blev tillagd. 
-            assetModel.AssetName = userInputName;
-            dialogService.AddAssetNameDialog(userInputName);
+            //Efterfrågar och tilldelar tillgångsnamn + validering
+            string namnInput = "namn";
+            dialogService.InputRequestMessage(namnInput);
+
+            string userInputName = Console.ReadLine();
+            validInputName = ValidateInput(userInputName);
+
+            if (validInputName == true)
+            {
+                //Om validering ok läggs den till och skriver ut att den blev tillagd. 
+                assetModel.AssetName = userInputName;
+                dialogService.AddAssetNameDialog(userInputName);
+            }
+            else
+            {
+                Console.ReadKey();
+            }
         }
+
 
         //Serienummer, samma som ovan hantering
-        string serienummerInput = "serienummer";
-        dialogService.InputRequestMessage(serienummerInput);
 
-        string userInputSerialNumber = Console.ReadLine();
-        bool validInputSerialNumber = ValidateInput(userInputSerialNumber);
-        if (validInputSerialNumber == true)
+        bool validInputSerialNumber = false;
+
+        while (validInputSerialNumber == false)
         {
-            assetModel.AssetSerialNumber = userInputSerialNumber;
-            dialogService.AddAssetSerialNumberDialog(userInputSerialNumber);
-        }
+            string serienummerInput = "serienummer";
+            dialogService.InputRequestMessage(serienummerInput);
 
+            string userInputSerialNumber = Console.ReadLine();
+            validInputSerialNumber = ValidateInput(userInputSerialNumber);
+
+            if (validInputSerialNumber == true)
+            {
+                assetModel.AssetSerialNumber = userInputSerialNumber;
+                dialogService.AddAssetSerialNumberDialog(userInputSerialNumber);
+            }
+            else
+            {
+                Console.ReadKey();
+            }
+        }
         return assetModel;
     }
 

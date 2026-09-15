@@ -32,7 +32,7 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
 
     public void ErrorValidationMessage()
     {
-        Console.WriteLine("Felaktig inmatning, försök igen");
+        Console.WriteLine("Felaktig inmatning, tryck valfri tangent för att försöka igen");
     }
 
 
