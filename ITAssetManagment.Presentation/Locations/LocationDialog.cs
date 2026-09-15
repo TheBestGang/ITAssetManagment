@@ -1,5 +1,8 @@
-﻿using ITAssetManagement.Application.Locations.Services;
+﻿using ITAssetManagement.Application.Locations.Dtos;
+using ITAssetManagement.Application.Locations.Services;
 using ITAssetManager.Domain.Locations.Models;
+using System.Diagnostics.CodeAnalysis;
+using System.Net.WebSockets;
 
 namespace ITAssetManagment.Presentation.Locations;
 
@@ -66,7 +69,7 @@ internal class LocationDialog(ILocationService locationService)
                 break;
 
             default:
-                InvalidMenuChoiceMessage();
+                InvalidInputMessage("Ogiltigt menyval, var god välj mellan alternativ 0-3");
                 break;
         }
 
@@ -75,7 +78,60 @@ internal class LocationDialog(ILocationService locationService)
 
     private void ShowCreateNewLocationDialog()
     {
-        throw new NotImplementedException();
+        string locationCode = InputDialog("Platskod");
+        string locationName = InputDialog("Platsnamn");
+
+        CreateLocationRequest request = new CreateLocationRequest(null, locationCode, locationName);
+        CreateLocationResponse response = locationService.CreateLocation(request);
+
+        Console.Clear();
+
+        if (response.Succeeded)
+        {
+            if (response.Location is not null)
+            {
+                Console.WriteLine($"{response.Location.LocationName} har blivit tillagd!");
+            }
+            else
+            {
+                Console.WriteLine("Kunde inte lägga till plasten.");
+            }
+        }
+        else
+        {
+            Console.WriteLine(response.ErrorMessage);
+        }
+    }
+
+    private string InputDialog(string text)
+    {
+        string value = string.Empty;
+        bool invalidInput = true;
+
+        do
+        {
+            value = GetUserInput(text);
+            
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                InvalidInputMessage($"{text} är obligatorisk");
+            }
+        }
+        while (invalidInput);
+
+        return value;
+    }
+
+    private string GetUserInput(string text)
+    {
+        string value = string.Empty;
+
+        Console.Clear();
+        Console.Write($"Ange {text.ToLower()}: ");
+        
+        value = Console.ReadLine() ?? string.Empty;
+
+        return value;
     }
 
     private void ShowAllLocations()
@@ -91,7 +147,6 @@ internal class LocationDialog(ILocationService locationService)
                 Console.WriteLine($"Id: {location.LocationId}");
             }
         }
-
     }
 
     private void ShowUpdateLocationDialog()
@@ -99,10 +154,10 @@ internal class LocationDialog(ILocationService locationService)
         throw new NotImplementedException();
     }
 
-    private void InvalidMenuChoiceMessage()
+    private void InvalidInputMessage(string message)
     {
         Console.WriteLine();
-        Console.WriteLine("Ogiltigt menyval, var god välj mellan alternativ 0-3.");
+        Console.WriteLine($"{message}.");
         Console.WriteLine();
         Console.WriteLine($"Klicka på någon tangent för att fortsätta.");
         Console.ReadKey();
