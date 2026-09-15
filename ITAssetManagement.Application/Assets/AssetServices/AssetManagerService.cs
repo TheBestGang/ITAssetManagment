@@ -13,7 +13,7 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
         _assetList.Add(newAsset);
     }
 
-    public void InactiveAsset(AssetModel asset)
+    public void InactiveAsset()
     {
         //skriv ut allt så användaren ser vad som ska göras
         assetDialogService.PrintAllAssetsDialog();
