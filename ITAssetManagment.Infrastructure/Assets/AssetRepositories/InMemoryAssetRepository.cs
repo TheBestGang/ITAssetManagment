@@ -68,6 +68,36 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
         }
     }
 
+    public void FindAssetToChange()
+    {
+        string inputAssetSerialNumberToBeChanged = Console.ReadLine();
+
+        bool validInput = ValidateInput(inputAssetSerialNumberToBeChanged);
+
+        if (validInput == true)
+        {
+            //Castar fram min lista för användning (???)
+            var _assetList = (List<AssetModel>)AssetModelLists._assetList;
+
+            foreach (AssetModel existingAsset in _assetList)
+            {
+                if (inputAssetSerialNumberToBeChanged == existingAsset.AssetSerialNumber)
+                {
+                    InactivateAsset(inputAssetSerialNumberToBeChanged);
+                }
+            }
+        }
+        else
+        {
+            dialogService.ErrorValidationMessage();
+        }
+    }
+
+    private void InactivateAsset(string inputAssetSerialNumberToBeChanged)
+    {
+        throw new NotImplementedException();
+    }
+
     public void ReadAssetList()
     {
         foreach (AssetModel asset in AssetModelLists._assetList) //FIX

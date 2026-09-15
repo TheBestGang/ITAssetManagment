@@ -8,23 +8,19 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
     {
         AssetModel newAsset = inMemoryAssetRepository.CreateAsset();
 
-        //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till på listan
+        //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till på listan (???)
         var _assetList = (List<AssetModel>)AssetModelLists._assetList;
         _assetList.Add(newAsset);
     }
 
     public void InactiveAsset(AssetModel asset)
     {
-        //skriv ut allt
+        //skriv ut allt så användaren ser vad som ska göras
         assetDialogService.PrintAllAssetsDialog();
 
         //meddelande välj tillgång som ska inaktiveras
         assetDialogService.InactivateAssetDialog();
 
-        //Lägg till en sökning av det användaren skrivit in + koppla till repon för denna ändring. 
-
-        //Ändra bool till false
-        asset.AssetStatus = false;
-
+        inMemoryAssetRepository.FindAssetToChange();
     }
 }
