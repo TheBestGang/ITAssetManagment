@@ -9,9 +9,10 @@ public interface IInmemoryAssetRepository
 
     public void PrintAddedAsset(string assetName, string assetSerialNumber, bool assetStatus);
 
-    public void InactivateAsset();
+    public void InactivateAsset(string inputAssetSerialNumberToBeChanged);
     
     public void ReadAssetList();
 
     public bool ValidateInput(string userInput);
+    public void FindAssetToChange();
 }
