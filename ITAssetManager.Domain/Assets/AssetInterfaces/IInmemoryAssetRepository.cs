@@ -14,5 +14,8 @@ public interface IInmemoryAssetRepository
     public void ReadAssetList();
 
     public bool ValidateInput(string userInput);
+
     public void FindAssetToChange();
+
+    public bool FindAssetSerialNumber(string inputSerialNumber);
 }

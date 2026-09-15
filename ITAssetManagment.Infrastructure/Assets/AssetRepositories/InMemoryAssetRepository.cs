@@ -58,6 +58,7 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
                 {
                     Console.WriteLine("Tillgång med det serienumret finns redan, tryck valfri tangent för att försöka igen");
                     Console.ReadKey();
+                    validInputSerialNumber= false;
                 }
                 else
                 {
