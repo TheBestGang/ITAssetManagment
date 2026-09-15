@@ -50,12 +50,25 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
 
             if (validInputSerialNumber == true)
             {
-                assetModel.AssetSerialNumber = userInputSerialNumber;
-                dialogService.AddAssetSerialNumberDialog(userInputSerialNumber);
+                //lägger till validering om serienummer redan finns
+
+                bool notFoundSerialNumber = FindAssetSerialNumber(userInputSerialNumber);
+
+                if (notFoundSerialNumber == false)
+                {
+                    Console.WriteLine("Tillgång med det serienumret finns redan, tryck valfri tangent för att försöka igen");
+                    Console.ReadKey();
+                }
+                else
+                {
+                    assetModel.AssetSerialNumber = userInputSerialNumber;
+                    dialogService.AddAssetSerialNumberDialog(userInputSerialNumber);
+                }
             }
             else
             {
                 Console.ReadKey();
+                validInputSerialNumber = false;
             }
         }
         return assetModel;
@@ -111,6 +124,29 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
         else
         {
             dialogService.ErrorValidationMessage();
+        }
+    }
+
+    //Jag vet att denna bör kunna kombineras med ovanstående men {tidsbrist}
+    public bool FindAssetSerialNumber(string inputAssetSerialNumberToFind)
+    {
+        bool validInput = ValidateInput(inputAssetSerialNumberToFind);
+
+        if (validInput == true)
+        {
+            var _assetList = (List<AssetModel>)AssetModelLists._assetList;
+            foreach (AssetModel existingAsset in _assetList)
+            {
+                if (inputAssetSerialNumberToFind == existingAsset.AssetSerialNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
