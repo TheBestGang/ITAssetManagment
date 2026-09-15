@@ -11,6 +11,8 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
         //"Castar" min IEnumerable lista till en vanlig lista för att kunna lägga till på listan (???)
         var _assetList = (List<AssetModel>)AssetModelLists._assetList;
         _assetList.Add(newAsset);
+
+        assetDialogService.AddedAssetAllDialog(newAsset.AssetName, newAsset.AssetSerialNumber, newAsset.AssetStatus);
     }
 
     public void InactiveAsset()

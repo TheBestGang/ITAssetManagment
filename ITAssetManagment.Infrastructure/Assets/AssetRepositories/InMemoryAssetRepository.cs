@@ -26,7 +26,6 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
         }
 
         //Serienummer, samma som ovan hantering
-
         string serienummerInput = "serienummer";
         dialogService.InputRequestMessage(serienummerInput);
 

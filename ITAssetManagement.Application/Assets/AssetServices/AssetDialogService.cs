@@ -7,16 +7,16 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
 {
     public void AddAssetNameDialog(string addedAssetName)
     {
+        Console.Clear();
         Console.WriteLine($"Tillgången {addedAssetName} är tillagd!");
     }
 
 
-
     public void AddAssetSerialNumberDialog(string addedAssetSerialNumber)
     {
+        Console.Clear();
         Console.WriteLine($"Tillgångens serienummer {addedAssetSerialNumber} är tillagd!");
     }
-
 
 
     public void AddedAssetAllDialog(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)
@@ -30,19 +30,16 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
     }
 
 
-
     public void ErrorValidationMessage()
     {
         Console.WriteLine("Felaktig inmatning, försök igen");
     }
 
 
-
     public void InactivateAssetDialog()
     {
         Console.WriteLine("Skriv serienummer på den tillgången du vill ändra status på");
     }
-
 
 
     public void MainMenuMessage()
@@ -57,13 +54,11 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
     }
 
 
-
     public void PrintAllAssetsDialog()
     {
         Console.WriteLine("Samtliga tillgångar du sparat: \n" +
                           "_______________________________");
     }
-
 
 
     public void WelcomeMessage()
@@ -73,8 +68,10 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
         Console.ReadKey();
     }
 
+
     public void InputRequestMessage(string input)
     {
+        Console.Clear();
         Console.WriteLine($"Vänligen ange tillgångens {input}: ");
     }
 
