@@ -11,6 +11,7 @@ public interface IAssetDialogService
     public void PrintAllAssetsDialog();
     public void ErrorValidationMessage();
     public void InputRequestMessage(string input);
+    public void ChangedAssetDialog();
 
 
 }

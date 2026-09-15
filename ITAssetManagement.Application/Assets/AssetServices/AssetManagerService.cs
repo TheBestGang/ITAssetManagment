@@ -19,10 +19,15 @@ public class AssetManagerService(IInmemoryAssetRepository inMemoryAssetRepositor
     {
         //skriv ut allt så användaren ser vad som ska göras
         assetDialogService.PrintAllAssetsDialog();
+        inMemoryAssetRepository.ReadAssetList();
 
         //meddelande välj tillgång som ska inaktiveras
         assetDialogService.InactivateAssetDialog();
 
+        //Hittar tillgången och ändrar status
         inMemoryAssetRepository.FindAssetToChange();
+
+        //meddelande om att ändringen är utförd. 
+        assetDialogService.ChangedAssetDialog();
     }
 }

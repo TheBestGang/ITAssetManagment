@@ -97,7 +97,7 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
     {
         if (_assetList != null)
         {
-            foreach (AssetModel asset in AssetModelLists._assetList) //FIX
+            foreach (AssetModel asset in AssetModelLists._assetList)
             {
                 //Skämssätt att sätta aktiv eller inaktiv på statusen
                 string assetStatus;
@@ -114,6 +114,7 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
                                   $"Serienummer: {asset.AssetSerialNumber}\n" +
                                   $"Status: {assetStatus}");
             }
+            Console.WriteLine("\nTryck valrfri tangent för att fortsätta");
             Console.ReadKey();
         }
         else

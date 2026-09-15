@@ -38,7 +38,7 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
 
     public void InactivateAssetDialog()
     {
-        Console.WriteLine("Skriv serienummer på den tillgången du vill ändra status på");
+        Console.Write("Skriv serienummer på den tillgången du vill ändra status på:");
     }
 
 
@@ -75,4 +75,10 @@ public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository
         Console.WriteLine($"Vänligen ange tillgångens {input}: ");
     }
 
+    public void ChangedAssetDialog()
+    {
+        Console.Clear();
+        Console.WriteLine("Tillgångens status är ändrad, tryck valfri tangent för att fortsätta");
+        Console.ReadKey();
+    }
 }
