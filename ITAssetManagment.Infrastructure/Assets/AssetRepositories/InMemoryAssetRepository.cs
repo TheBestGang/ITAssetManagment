@@ -48,10 +48,11 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
             string assetStatus = "Aktiv";
 
             //Skriv ut allting som regisrerats
+            Console.Clear();
             Console.WriteLine($"Tillgång tillagd med följande information: \n" +
-                              $"Namn: {addedAssetName}\n" +
-                              $"Serienummer: {addedAssetSerialNumber}\n" +
-                              $"Status: {assetStatus}\n");
+                              $"Namn:\t\t {addedAssetName}\n" +
+                              $"Serienummer:\t {addedAssetSerialNumber}\n" +
+                              $"Status:\t\t {assetStatus}\n");
         }
     }
 
@@ -94,9 +95,9 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
 
     public void ReadAssetList()
     {
-        foreach (AssetModel asset in AssetModelLists._assetList) //FIX
+        if (_assetList != null)
         {
-            if (_assetList != null)
+            foreach (AssetModel asset in AssetModelLists._assetList) //FIX
             {
                 //Skämssätt att sätta aktiv eller inaktiv på statusen
                 string assetStatus;
@@ -108,15 +109,17 @@ public class InMemoryAssetRepository(IAssetDialogService dialogService, AssetMod
                 {
                     assetStatus = "Inaktiv";
                 }
-                Console.WriteLine($"Tillgång: \n" +
+                Console.WriteLine($"\nTillgång: \n" +
                                   $"Namn: {asset.AssetName}\n" +
                                   $"Serienummer: {asset.AssetSerialNumber}\n" +
                                   $"Status: {assetStatus}");
             }
-            else
-            {
-                Console.WriteLine("Du har inga tillgångar i din lista");
-            }
+            Console.ReadKey();
+        }
+        else
+        {
+            Console.WriteLine("Du har inga tillgångar i din lista");
+            Console.ReadKey();
         }
     }
 
