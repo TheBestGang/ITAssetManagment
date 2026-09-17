@@ -6,16 +6,17 @@ using ITAssetManager.Domain.Locations.ValueObjects;
 
 namespace ITAssetManagement.Application.Locations.Services;
 
-internal class LocationService(ILocationStore locationStore) : ILocationService
+public class LocationService(ILocationStore locationStore) : ILocationService
 {
     public CreateLocationResponse CreateLocation(CreateLocationRequest request)
     {
+        Location location;
+        bool added;
+
         if (request is null)
         {
             return new CreateLocationResponse(false, null, "Platsen kan inte vara null.");
         }
-
-        Location location;
 
         try
         {
@@ -24,13 +25,12 @@ internal class LocationService(ILocationStore locationStore) : ILocationService
             LocationName locationName = new LocationName(request.LocationName);
 
             location = Create(locationId, locationCode, locationName);
+            added = locationStore.Add(location);
         }
         catch (Exception ex)
         {
             return new CreateLocationResponse(false, null, ex.Message);
         }
-
-        bool added = locationStore.Add(location);
 
         return added
             ? new CreateLocationResponse(true, location, null)
@@ -47,6 +47,20 @@ internal class LocationService(ILocationStore locationStore) : ILocationService
         Location customer = new Location((Guid)locationId, locationCode, locationName);
 
         return customer;
+    }
+
+    public GetLocationByLocationCodeResponse GetLocationByLocationCode(string locationCode)
+    {
+        Location? location = locationStore.GetLocationByLocationCode(locationCode);
+
+        if (location is null)
+        {
+            return new GetLocationByLocationCodeResponse(false, null, $"Kunde inte hitta en plats med platskoden '{locationCode}'");
+        }
+        else
+        {
+            return new GetLocationByLocationCodeResponse(true, location, null);
+        }
     }
 
     private Guid GenerateNewId() => Guid.NewGuid();
@@ -70,7 +84,7 @@ internal class LocationService(ILocationStore locationStore) : ILocationService
             return new UpdateLocationResponse(false, request.UpdatedLocation, "Platsen måste ha ett id.");
         }
 
-        Location? location = locationStore.GetLocationById(request.UpdatedLocation.LocationId);
+        Location? location = locationStore.GetLocationByLocationCode(request.UpdatedLocation.LocationCode.Value);
 
         if (location is null)
         {
@@ -83,7 +97,7 @@ internal class LocationService(ILocationStore locationStore) : ILocationService
         }
         catch (Exception ex)
         {
-            return new UpdateLocationResponse(false, null, "Platsen kunde inte uppdateras.");
+            return new UpdateLocationResponse(false, null, ex.Message);
         }
 
         return new UpdateLocationResponse(true, request.UpdatedLocation, null);

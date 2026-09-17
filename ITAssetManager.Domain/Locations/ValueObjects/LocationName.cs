@@ -8,14 +8,14 @@ public record LocationName
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentNullException("Du måste fylla i ett platsnamn.", nameof(value));
+            throw new ArgumentNullException("Du måste fylla i ett platsnamn.");
         }
 
         string normalizedValue = value.Trim();
 
         if (normalizedValue.Length < minLength)
         {
-            throw new ArgumentException($"Platsnamn måste bestå av minst {minLength} bokstäver.", nameof(value));
+            throw new ArgumentException($"Platsnamn måste bestå av minst {minLength} bokstäver.");
         }
 
         Value = normalizedValue;

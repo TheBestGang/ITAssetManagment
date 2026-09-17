@@ -8,7 +8,7 @@ public record LocationCode
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            throw new ArgumentNullException("Du måste fylla i en platskod.", nameof(value));
+            throw new ArgumentNullException("Du måste fylla i en platskod.");
         }
 
         string normalizedValue = value.Trim();

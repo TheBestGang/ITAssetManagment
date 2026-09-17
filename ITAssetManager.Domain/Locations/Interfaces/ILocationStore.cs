@@ -6,6 +6,6 @@ public interface ILocationStore
 {
     bool Add(Location location);
     IReadOnlyList<Location> GetAllLocations();
-    Location? GetLocationById(Guid locationId);
+    Location? GetLocationByLocationCode(string locationCode);
     Location Update(Location updatedLocation);
 }
