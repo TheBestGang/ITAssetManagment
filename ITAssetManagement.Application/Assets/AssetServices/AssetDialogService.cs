@@ -1,0 +1,84 @@
+﻿
+using ITAssetManager.Domain.Assets.AssetInterfaces;
+
+namespace ITAssetManagement.Application.Assets.AssetServices;
+
+public class AssetDialogService(IInmemoryAssetRepository inMemoryAssetRepository) : IAssetDialogService
+{
+    public void AddAssetNameDialog(string addedAssetName)
+    {
+        Console.Clear();
+        Console.WriteLine($"Tillgången {addedAssetName} är tillagd!");
+    }
+
+
+    public void AddAssetSerialNumberDialog(string addedAssetSerialNumber)
+    {
+        Console.Clear();
+        Console.WriteLine($"Tillgångens serienummer {addedAssetSerialNumber} är tillagd!");
+    }
+
+
+    public void AddedAssetAllDialog(string addedAssetName, string addedAssetSerialNumber, bool addedAssetStatus)
+    {
+        //Printar ut allt
+        inMemoryAssetRepository.PrintAddedAsset(addedAssetName, addedAssetSerialNumber, addedAssetStatus);
+
+        Console.WriteLine("Tryck valrfri tangent för att fortsätta");
+        Console.ReadKey();
+        Console.Clear();
+    }
+
+
+    public void ErrorValidationMessage()
+    {
+        Console.WriteLine("Felaktig inmatning, tryck valfri tangent för att försöka igen");
+    }
+
+
+    public void InactivateAssetDialog()
+    {
+        Console.Write("Skriv serienummer på den tillgången du vill ändra status på:");
+    }
+
+
+    public void MainMenuMessage()
+    {
+        Console.Clear();
+        Console.WriteLine("___________MENY TILLGÅNGAR___________\n" +
+                          "Välj det du vill göra: \n\n" +
+                          "[1] Lägg till en tillgång\n" +
+                          "[2] Inaktivera en tillgång\n" +
+                          "[3] Skriv ut alla sparade tillgångar\n" +
+                          "[0] Gå tillbaka till huvudmenyn");
+    }
+
+
+    public void PrintAllAssetsDialog()
+    {
+        Console.WriteLine("Samtliga tillgångar du sparat: \n" +
+                          "_______________________________");
+    }
+
+
+    public void WelcomeMessage()
+    {
+        Console.Clear();
+        Console.WriteLine("Välkommen till hantering av tillgångar. Tryck valfri tangent för att gå vidare");
+        Console.ReadKey();
+    }
+
+
+    public void InputRequestMessage(string input)
+    {
+        Console.Clear();
+        Console.WriteLine($"Vänligen ange tillgångens {input}: ");
+    }
+
+    public void ChangedAssetDialog()
+    {
+        Console.Clear();
+        Console.WriteLine("Tillgångens status är ändrad, tryck valfri tangent för att fortsätta");
+        Console.ReadKey();
+    }
+}
